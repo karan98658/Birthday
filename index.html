@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Sis! 🎂</title>
+<style>
+:root{--pink:#ff5d9e;--purple:#8b5cf6;--cream:#fff8f3}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#34213d;background:linear-gradient(135deg,#fff0f6,#f2eaff 55%,#fff6df);overflow-x:hidden}
+main{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{width:min(760px,100%);text-align:center;background:rgba(255,255,255,.78);border:1px solid #ffffffd9;border-radius:30px;padding:clamp(24px,6vw,54px);box-shadow:0 22px 70px #8b5cf626;position:relative;overflow:hidden}
+.sparkle{font-size:clamp(38px,8vw,70px);animation:bob 2.5s ease-in-out infinite;display:block}
+h1{font-size:clamp(2.2rem,8vw,4.4rem);line-height:1.05;margin:15px 0;color:#e83e8c;letter-spacing:-2px}
+.subtitle{font-size:clamp(1rem,3vw,1.25rem);line-height:1.7;color:#624b6b;max-width:570px;margin:0 auto}
+.name{color:#8055df}
+.cake{font-size:75px;margin:22px 0 12px;filter:drop-shadow(0 8px 8px #e83e8c22)}
+button{border:0;border-radius:999px;padding:14px 23px;font-size:1rem;font-weight:750;cursor:pointer;color:white;background:linear-gradient(100deg,#ff5d9e,#8b5cf6);box-shadow:0 8px 20px #b34cc544;transition:transform .2s}
+button:hover{transform:translateY(-2px) scale(1.02)}
+#surprise{display:none;margin:24px auto 0;padding:22px;border-radius:20px;background:#fff0f7;max-width:540px;line-height:1.8;animation:pop .5s ease}
+footer{margin-top:28px;font-size:.9rem;color:#8c7893}
+.heart{position:fixed;bottom:-40px;pointer-events:none;animation:floatUp linear forwards;z-index:3}
+.confetti{position:fixed;top:-15px;width:9px;height:15px;z-index:5;animation:fall linear forwards;pointer-events:none}
+@keyframes bob{50%{transform:translateY(-9px) rotate(4deg)}}
+@keyframes pop{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+@keyframes floatUp{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+@keyframes fall{to{transform:translateY(110vh) rotate(700deg);opacity:.8}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.gift-wrap{margin:22px auto 4px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.gift-box{position:relative;width:112px;height:92px;cursor:pointer;transform-origin:bottom center;transition:transform .25s;filter:drop-shadow(0 9px 8px #b34cc533);border:0;background:transparent;padding:0;box-shadow:none;border-radius:0}
+.gift-box:hover{transform:translateY(-4px) rotate(-2deg)}
+.gift-base{position:absolute;left:9px;bottom:0;width:94px;height:62px;border-radius:5px 5px 12px 12px;background:linear-gradient(135deg,#ff70ad,#f13d87)}
+.gift-lid{position:absolute;left:2px;top:15px;width:108px;height:22px;border-radius:6px;background:linear-gradient(135deg,#ff9bc5,#ff4d98);z-index:2;transform-origin:10% 90%;transition:transform .65s cubic-bezier(.2,.8,.2,1)}
+.gift-ribbon-v{position:absolute;left:47px;bottom:0;width:18px;height:62px;background:#ffe17a;z-index:1}
+.gift-ribbon-h{position:absolute;left:9px;bottom:27px;width:94px;height:15px;background:#ffe17a;z-index:1}
+.gift-bow{position:absolute;left:35px;top:0;width:25px;height:19px;border:7px solid #ffe17a;border-radius:70% 70% 15% 70%;transform:rotate(20deg);z-index:3}
+.gift-bow:after{content:"";position:absolute;width:25px;height:19px;border:7px solid #ffe17a;border-radius:70% 70% 70% 15%;left:15px;top:-7px;transform:rotate(45deg)}
+.gift-box.open .gift-lid{transform:translate(-8px,-40px) rotate(-25deg)}
+.gift-box.open{animation:giftBounce .7s ease}
+.gift-box.open .gift-base{animation:glowGift 1s ease-in-out 2}
+.gift-hint{font-size:.95rem;font-weight:750;color:#8b5cf6;margin:0}
+.gift-reveal{display:none;font-size:2.4rem;letter-spacing:7px;animation:pop .55s ease}
+.gift-reveal.show{display:block}
+@keyframes giftBounce{0%,100%{transform:translateY(0)}35%{transform:translateY(-15px) rotate(4deg)}70%{transform:translateY(-4px) rotate(-3deg)}}
+@keyframes glowGift{50%{filter:drop-shadow(0 0 16px #ff5d9e)}}
+@media(prefers-reduced-motion:reduce){.gift-box,.gift-lid{transition:none}}
+
+.memory-card{margin:24px auto 0;max-width:560px;padding:20px;border-radius:22px;background:linear-gradient(135deg,#fff7fb,#f4efff);border:1px solid #f7d6e8;text-align:left}
+.memory-card h2{margin:0 0 8px;text-align:center;color:#e83e8c;font-size:1.35rem}
+.memory-card p{line-height:1.8;margin:8px 0;color:#624b6b}
+.wish-button{margin-top:12px}
+#wishNote{display:none;margin-top:14px;padding:14px;border-radius:16px;background:#fff;color:#8b3c78;line-height:1.7;animation:pop .45s ease}
+#wishNote.show{display:block}
+.music-btn{margin-top:12px;background:linear-gradient(100deg,#9b7bff,#ff75aa);font-size:.9rem;padding:11px 18px}
+.star{position:fixed;pointer-events:none;z-index:4;animation:starBurst 1.4s ease-out forwards}
+@keyframes starBurst{0%{transform:translate(0,0) scale(.4) rotate(0);opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(1.2) rotate(180deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){.star{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <span class="sparkle">🎀✨🎈</span>
+    <p style="font-weight:800;letter-spacing:3px;color:#8b5cf6;margin:18px 0 0">TODAY IS ALL ABOUT YOU</p>
+    <h1>Happy Birthday,<br><span class="name" id="sisterName">Teena</span>! 💖</h1>
+    <p class="subtitle">Meri life ki sabse special, cute aur thodi si crazy sister Teena ko birthday ki dher saari wishes! 🥹💕</p>
+    <div class="cake">🎂</div>
+    <div class="gift-wrap">
+      <button class="gift-box" id="giftBox" aria-label="Open birthday gift" title="Tap to open your gift">
+        <span class="gift-bow"></span><span class="gift-lid"></span>
+        <span class="gift-base"></span><span class="gift-ribbon-v"></span><span class="gift-ribbon-h"></span>
+      </button>
+      <p class="gift-hint" id="giftHint">Teena, apna gift kholne ke liye tap karo 🎁</p>
+      <div class="gift-reveal" id="giftReveal">🌷 💖 ✨ 👑 🎉</div>
+    </div>
+    <p class="subtitle">Teri smile hamesha aise hi chamakti rahe, tere saare dreams poore hon, aur life hamesha pyaar, khushiyon aur success se bhari rahe.</p>
+    <div style="margin-top:26px"><button id="surpriseBtn">Click for a little surprise 💌</button></div>
+    <section class="memory-card">
+      <h2>For My Forever Favourite Sister 🌷</h2>
+      <p>Dear Teena,</p>
+      <p>Tu sirf meri sister nahi, meri life ki ek bahut special blessing hai. Teri hasi ghar ko khushiyon se bhar deti hai, aur teri khushi mere liye hamesha matter karti hai.</p>
+      <p>May this new year of your life bring you soft mornings, big dreams, unexpected blessings, endless laughter, and people who love you exactly as you are. Tu hamesha shine karti reh, meri queen. 👑</p>
+      <p style="text-align:right;font-weight:800;color:#e83e8c">Lots of love, always ❤️</p>
+      <div style="text-align:center"><button class="wish-button" id="wishBtn">Make a birthday wish ✨</button></div>
+      <div id="wishNote">🌠 Teena, aankhein band karke ek wish maango… may the universe bring you closer to every beautiful thing your heart wants. 💖</div>
+    </section>
+    <button class="music-btn" id="musicBtn">🎵 Play birthday tune</button>
+    <p style="font-size:.78rem;color:#8c7893;margin:8px 0 0">Music starts only when you tap the button.</p>
+    <div id="surprise">
+      <div style="font-size:2.2rem">💝🌷🧸</div>
+      <strong style="font-size:1.2rem;color:#e83e8c">A special message for you!</strong>
+      <p>Teena, chahe kitni bhi nok-jhok ho, tu mere liye hamesha precious rahegi. Thank you meri life ko brighter banane ke liye. Hamesha khush rehna, queen! 👑</p>
+      <strong>Love you loads, Sis! ❤️</strong>
+    </div>
+    <footer>Made with ❤️ just for you · Keep smiling, birthday girl!</footer>
+  </section>
+</main>
+<script>
+const emojis=['💖','💕','💗','✨','🌸','💜'];
+function floatHeart(){
+ const el=document.createElement('span');el.className='heart';el.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+ el.style.left=Math.random()*100+'vw';el.style.fontSize=(16+Math.random()*22)+'px';el.style.animationDuration=(5+Math.random()*5)+'s';
+ document.body.appendChild(el);setTimeout(()=>el.remove(),10500);
+}
+setInterval(floatHeart,650);
+function celebrate(){
+ const colors=['#ff5d9e','#8b5cf6','#ffc857','#54d6c5','#ff8c69'];
+ for(let i=0;i<110;i++){const c=document.createElement('i');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.animationDuration=(2+Math.random()*3)+'s';c.style.animationDelay=Math.random()*.8+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),6000)}
+}
+let audioCtx=null, musicTimer=null, musicOn=false, noteIndex=0;
+const melody=[523.25,523.25,587.33,523.25,698.46,659.25,523.25,523.25,587.33,523.25,783.99,698.46];
+function playNote(){
+ if(!audioCtx || !musicOn) return;
+ const osc=audioCtx.createOscillator(), gain=audioCtx.createGain();
+ osc.type='sine'; osc.frequency.value=melody[noteIndex%melody.length];
+ gain.gain.setValueAtTime(0.0001,audioCtx.currentTime);
+ gain.gain.exponentialRampToValueAtTime(0.09,audioCtx.currentTime+0.03);
+ gain.gain.exponentialRampToValueAtTime(0.0001,audioCtx.currentTime+0.32);
+ osc.connect(gain);gain.connect(audioCtx.destination);osc.start();osc.stop(audioCtx.currentTime+0.34);
+ noteIndex++;
+}
+document.getElementById('musicBtn').addEventListener('click',async()=>{
+ if(!musicOn){
+   const AC=window.AudioContext||window.webkitAudioContext;
+   if(!AC){document.getElementById('musicBtn').textContent='🎵 Audio not supported';return;}
+   audioCtx=audioCtx||new AC(); await audioCtx.resume(); musicOn=true;
+   document.getElementById('musicBtn').textContent='🔇 Pause birthday tune';
+   playNote();musicTimer=setInterval(playNote,390);
+ }else{
+   musicOn=false;clearInterval(musicTimer);
+   document.getElementById('musicBtn').textContent='🎵 Play birthday tune';
+ }
+});
+document.getElementById('wishBtn').addEventListener('click',()=>{
+ document.getElementById('wishNote').classList.toggle('show');
+ celebrate();
+ const symbols=['✨','🌟','💖','🌸','💫'];
+ for(let i=0;i<28;i++){
+   const s=document.createElement('span');s.className='star';s.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+   s.style.left=(40+Math.random()*20)+'vw';s.style.top=(35+Math.random()*30)+'vh';
+   s.style.setProperty('--dx',(Math.random()*260-130)+'px');s.style.setProperty('--dy',(Math.random()*-240-20)+'px');
+   document.body.appendChild(s);setTimeout(()=>s.remove(),1500);
+ }
+});
+document.getElementById('giftBox').addEventListener('click',()=>{
+ const gift=document.getElementById('giftBox');
+ gift.classList.toggle('open');
+ const reveal=document.getElementById('giftReveal');
+ reveal.classList.toggle('show',gift.classList.contains('open'));
+ document.getElementById('giftHint').textContent=gift.classList.contains('open')
+   ? 'Surprise! Teena, tu sabse special hai! 💖'
+   : 'Teena, apna gift kholne ke liye tap karo 🎁';
+ if(gift.classList.contains('open')) celebrate();
+});
+document.getElementById('surpriseBtn').addEventListener('click',()=>{
+ const box=document.getElementById('surprise');box.style.display='block';
+ document.getElementById('surpriseBtn').textContent='You are loved so much! 💖';celebrate();
+});
+</script>
+</body>
+</html>
